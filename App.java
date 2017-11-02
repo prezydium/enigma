@@ -5,9 +5,9 @@ public class App {
 
     private static String haslo = "nicolette";
     private static String input = "";
-    private  static String bitRep;
+    private static String bitRep;
     private static String secretWord = "nic";
-    private static double x;
+    private static int x;
 
 
 
@@ -16,6 +16,8 @@ public class App {
         StringBuilder sb = new StringBuilder();
         StringBuilder sbSecret = new StringBuilder();
         StringBuilder sbTemp = new StringBuilder();
+        StringBuilder sbTemp2 = new StringBuilder();
+        StringBuilder sbCoded = new StringBuilder();
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Podaj tekst do zakodowania:");
@@ -29,22 +31,42 @@ public class App {
            sbTemp.append(" ");
            input = sbTemp.toString();
        }
+        if ((input.length()/secretWord.length()) != 1){
+
+           for(int i = 0; i <(input.length()/secretWord.length()); i++){
+               sbTemp2.append(secretWord);
+           }
+           secretWord = sbTemp2.toString();
+        }
+
         char[] base = input.toCharArray();
         char[] secret = secretWord.toCharArray();
        for (int i = 0; i < base.length; i++){
            bitRep = Integer.toBinaryString(Character.getNumericValue(base[i]));
            bitRep = ("00000000" + bitRep).substring(bitRep.length());
-            sb.append(bitRep + " ");
+            sb.append(bitRep/*+ " "*/);
 
        }
         for (int i = 0; i < secret.length; i++){
             bitRep = Integer.toBinaryString(Character.getNumericValue(secret[i]));
             bitRep = ("00000000" + bitRep).substring(bitRep.length());
-            sbSecret.append(bitRep + " ");
+            sbSecret.append(bitRep /*+ " "*/);
 
         }
+        char[] text1 = sb.toString().toCharArray();
+        char[] text2 = sbSecret.toString().toCharArray();
+
+        for(int i = 0; i < text1.length ; i++){
+            if (text1[i] == text2[i]){
+                sbCoded.append("0");
+            } else {
+                sbCoded.append("1");
+
+        }}
+
         System.out.println(sb);
         System.out.println(sbSecret);
+        System.out.println(sbCoded);
 
 
     }
