@@ -1,11 +1,10 @@
-
 import java.util.Scanner;
 
 public class App {
 
     private static String input = "";
     private static String bitRep;
-    private static String secretWord = "nic";
+    private static String secretWord = "nic"; // program pod 3 literowe haslo, pamietac
     private static int x;
     private static String output;
 
@@ -63,19 +62,29 @@ public class App {
             }
         }
 
-        System.out.println(sb);
-        System.out.println(sbSecret);
-        System.out.println(sbCoded);
+        System.out.println(sb); //testline
+        System.out.println(sbSecret); //testline
+        System.out.println(sbCoded); //testline
 
-        output = sbCoded.substring(0, 8);
-        System.out.println("bity: " + output);
-        Integer u = Integer.valueOf(output);
-        System.out.println(u);
-        Character A = Character.lowSurrogate(u);
-        System.out.println(A);
+        Integer[] end = new Integer[sbCoded.length()/8];
+        int pocz = 0;
+        int konc = 8;
+        Integer z;
 
+        for (int i=0; i<sbCoded.length()/8; i++) {
+            output = sbCoded.substring(pocz, konc);
+           // System.out.println("bity: " + output); test line
+            z = Integer.parseInt(output, 2);
+            end[i] = z;
+            pocz += 8;
+            konc += 8;
+        }
+        System.out.println("Zakodowana wiadomość: ");
+        for(int e: end){
+            System.out.print(e + " ");
+
+        }
 
     }
-
 
 }
