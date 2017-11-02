@@ -15,14 +15,22 @@ public class App {
     public static void main(String[] args){
         StringBuilder sb = new StringBuilder();
         StringBuilder sbSecret = new StringBuilder();
+        StringBuilder sbTemp = new StringBuilder();
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Podaj tekst do zakodowania:");
         input = sc.nextLine();
+        sbTemp.append(input);
+       //System.out.println(base);
+       if (input.length() % secretWord.length() == 1){
+           sbTemp.append("  ");
+           input = sbTemp.toString();
+       }else if (input.length() % secretWord.length() == 2){
+           sbTemp.append(" ");
+           input = sbTemp.toString();
+       }
         char[] base = input.toCharArray();
         char[] secret = secretWord.toCharArray();
-       System.out.println(base);
-
        for (int i = 0; i < base.length; i++){
            bitRep = Integer.toBinaryString(Character.getNumericValue(base[i]));
            bitRep = ("00000000" + bitRep).substring(bitRep.length());
