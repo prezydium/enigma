@@ -13,13 +13,11 @@ private static String menu = "";
             Code code = new Code();
             code.crypth();
         } else if (menu.equals("2")){
-
+            Decode decode = new Decode();
+            decode.decrypt();
         }else {
             System.out.println("Nie żartuj sobie ze mnie!");
         }
-
-
-
 
         }
 

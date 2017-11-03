@@ -4,7 +4,7 @@ public class Code {
 
     private String input = "";
     private String bitRep;
-    private String secretWord = "nic"; // program pod 3 literowe haslo, pamietac
+    private String secretWord = "";
     private int x;
     private String output;
     StringBuilder sb = new StringBuilder();
