@@ -19,6 +19,9 @@ private static String menu = "";
             System.out.println("Nie żartuj sobie ze mnie!");
         }
 
+        System.out.println("\n\nMe zadanie skończone");
+        sc.nextLine();
+
         }
 
     }

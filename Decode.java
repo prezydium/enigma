@@ -4,41 +4,36 @@ public class Decode {
 
     private String input = "";
     private String bitRep;
-    private String secretWord = "nic"; // program pod 3 literowe haslo, pamietac
-    private int x;
+    private String secretWord = "";
     private String output;
-    StringBuilder sb = new StringBuilder();
-    StringBuilder sbSecret = new StringBuilder();
-    StringBuilder sbTemp = new StringBuilder();
-    StringBuilder sbTemp2 = new StringBuilder();
-    StringBuilder sbCoded = new StringBuilder();
-    StringBuilder sbDecoded = new StringBuilder();
-    StringBuilder sbMessage = new StringBuilder();
-    Scanner sc = new Scanner(System.in);
+    private StringBuilder sb = new StringBuilder();
+    private StringBuilder sbSecret = new StringBuilder();
+    private StringBuilder sbTemp = new StringBuilder();
+    private StringBuilder sbTemp2 = new StringBuilder();
+    private StringBuilder sbCoded = new StringBuilder();
+    private StringBuilder sbDecoded = new StringBuilder();
+    private StringBuilder sbMessage = new StringBuilder();
+    private Scanner sc = new Scanner(System.in);
 
-    public void decrypt(){
+    public void decrypt() {
         System.out.println("Podaj tajne hasło, którym wiadomość została zakodowana:");
         secretWord = sc.nextLine();
         System.out.println("Podaj tajną wiadomość(pamiętasz, że to ciąg liczb całkowitych rozdzielonych spacjami?):");
         input = sc.nextLine();
-      /*  Integer[] end = new Integer[10000];
-        for (int i = 0; i<end.length; i++){
-            end[i] = 9999;
-        }
-        */
-      String[] start = input.split(" ");
-      int[] startAsInt = new int[start.length];
+
+        String[] start = input.split(" ");
+        int[] startAsInt = new int[start.length];
         for (int i = 0; i < start.length; i++) {
             startAsInt[i] = Integer.parseInt(start[i]);
         }
 
-        for(int i = 0; i < startAsInt.length; i++) {
+        for (int i = 0; i < startAsInt.length; i++) {
             bitRep = Integer.toBinaryString(startAsInt[i]);
             bitRep = ("00000000" + bitRep).substring(bitRep.length());
             sbCoded.append(bitRep);
         }
-        System.out.println(sbCoded); // testline
-      //  System.out.println(sbCoded.length()/8); // testline
+        //  System.out.println(sbCoded); // testline
+        //  System.out.println(sbCoded.length()/8); // testline
 
         if (startAsInt.length > secretWord.length()) {
             sbTemp2.append(secretWord);
@@ -48,7 +43,6 @@ public class Decode {
             secretWord = sbTemp2.toString();
         }
 
-        //char[] base = input.toCharArray();
         char[] secret = secretWord.toCharArray();
 
 
@@ -59,7 +53,7 @@ public class Decode {
 
         }
 
-        System.out.println(sbSecret);
+        // System.out.println(sbSecret); //test line
 
         char[] text1 = sbCoded.toString().toCharArray();
         char[] text2 = sbSecret.toString().toCharArray();
@@ -72,15 +66,14 @@ public class Decode {
 
             }
         }
-        System.out.println(sbDecoded); //testline
+        //  System.out.println(sbDecoded); //testline
 
-        Integer[] end = new Integer[sbDecoded.length()/8];
+        Integer[] end = new Integer[sbDecoded.length() / 8];
         int pocz = 0;
         int konc = 8;
         Integer z;
-        for (int i=0; i<sbDecoded.length()/8; i++) {
+        for (int i = 0; i < sbDecoded.length() / 8; i++) {
             output = sbDecoded.substring(pocz, konc);
-            // System.out.println("bity: " + output); test line
             z = Integer.parseInt(output, 2);
             end[i] = z;
             pocz += 8;
@@ -89,15 +82,11 @@ public class Decode {
 
         System.out.println("Odkodowana wiadomość: ");
         char ch;
-        for(int e: end) {
+        for (int e : end) {
             ch = Character.forDigit(e, 36);
             sbMessage.append(ch);
         }
         System.out.println(sbMessage);
-
-
-
-
 
 
     }

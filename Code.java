@@ -5,14 +5,13 @@ public class Code {
     private String input = "";
     private String bitRep;
     private String secretWord = "";
-    private int x;
     private String output;
-    StringBuilder sb = new StringBuilder();
-    StringBuilder sbSecret = new StringBuilder();
-    StringBuilder sbTemp = new StringBuilder();
-    StringBuilder sbTemp2 = new StringBuilder();
-    StringBuilder sbCoded = new StringBuilder();
-    Scanner sc = new Scanner(System.in);
+    private StringBuilder sb = new StringBuilder();
+    private StringBuilder sbSecret = new StringBuilder();
+    private StringBuilder sbTemp = new StringBuilder();
+    private StringBuilder sbTemp2 = new StringBuilder();
+    private StringBuilder sbCoded = new StringBuilder();
+    private Scanner sc = new Scanner(System.in);
 
     public void crypth() {
 
@@ -22,14 +21,6 @@ public class Code {
         input = sc.nextLine();
         sbTemp.append(input);
 
-        //System.out.println(base);
-       /* if (input.length() % secretWord.length() == 1) {
-            sbTemp.append("  ");
-            input = sbTemp.toString();
-        } else if (input.length() % secretWord.length() == 2) {
-            sbTemp.append(" ");
-            input = sbTemp.toString();
-        }*/
         if (input.length() > secretWord.length()) {
             sbTemp2.append(secretWord);
             while (input.length() > sbTemp2.length()) {
@@ -64,16 +55,16 @@ public class Code {
             }
         }
 
-        System.out.println(sb); //test line
-        System.out.println(sbSecret); //test line
-        System.out.println(sbCoded); //test line
+       // System.out.println(sb); //test line
+       // System.out.println(sbSecret); //test line
+       // System.out.println(sbCoded); //test line
 
-        Integer[] end = new Integer[sbCoded.length()/8];
+        Integer[] end = new Integer[sbCoded.length() / 8];
         int pocz = 0;
         int konc = 8;
         Integer z;
 
-        for (int i=0; i<sbCoded.length()/8; i++) {
+        for (int i = 0; i < sbCoded.length() / 8; i++) {
             output = sbCoded.substring(pocz, konc);
             // System.out.println("bity: " + output); test line
             z = Integer.parseInt(output, 2);
@@ -82,7 +73,7 @@ public class Code {
             konc += 8;
         }
         System.out.println("Zakodowana wiadomość: ");
-        for(int e: end){
+        for (int e : end) {
             System.out.print(e + " ");
 
         }
