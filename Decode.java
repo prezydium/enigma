@@ -90,7 +90,7 @@ public class Decode {
         System.out.println("Odkodowana wiadomość: ");
         char ch;
         for(int e: end) {
-            ch = (char)e;
+            ch = Character.forDigit(e, 36);
             sbMessage.append(ch);
         }
         System.out.println(sbMessage);
