@@ -15,9 +15,9 @@ public class Code {
 
     public void crypth() {
 
-        System.out.println("Wybierz swe tajne hasło");
+        System.out.println("Wybierz swe tajne haslo / Choose your secret keyword: ");
         secretWord = sc.nextLine();
-        System.out.println("Podaj tekst do zakodowania (bez polskich znaków):");
+        System.out.println("Podaj tekst do zakodowania (bez polskich znakow): / Type message to code (no polish or dwarven characters): ");
         input = sc.nextLine();
         sbTemp.append(input);
 
@@ -72,7 +72,7 @@ public class Code {
             pocz += 8;
             konc += 8;
         }
-        System.out.println("Zakodowana wiadomość: ");
+        System.out.println("Zakodowana wiadomosc to: / Crypthed message is: ");
         for (int e : end) {
             System.out.print(e + " ");
 

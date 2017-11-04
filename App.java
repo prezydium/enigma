@@ -4,9 +4,9 @@ public class App {
 private static Scanner sc = new Scanner (System.in);
 private static String menu = "";
     public static void main(String[] args) {
-        System.out.println("Witaj wędrowcze. Czy chcesz: " +
-                "\n1. Ukryć wiadomość" +
-                "\n2. Poznać sekrety");
+        System.out.println("Witaj wedrowcze. Czy chcesz: / Welcome Wanderer. Do you want to: " +
+                "\n1. Ukryc wiadomosc / Hide message." +
+                "\n2. Poznac sekrety / Learn secrets.");
 
         menu = sc.nextLine();
         if (menu.equals("1")){
@@ -16,10 +16,10 @@ private static String menu = "";
             Decode decode = new Decode();
             decode.decrypt();
         }else {
-            System.out.println("Nie żartuj sobie ze mnie!");
+            System.out.println("Nie zartuj sobie ze mnie! / Don't joke with me!");
         }
 
-        System.out.println("\n\nMe zadanie skończone");
+        System.out.println("\n\nMe zadanie skonczone / My work is done");
         sc.nextLine();
 
         }

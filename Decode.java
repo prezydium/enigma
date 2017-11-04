@@ -16,9 +16,10 @@ public class Decode {
     private Scanner sc = new Scanner(System.in);
 
     public void decrypt() {
-        System.out.println("Podaj tajne hasło, którym wiadomość została zakodowana:");
+        System.out.println("Podaj tajne haslo, którym wiadomosc zostala zakodowana: / Type secret keyword used to encode message: ");
         secretWord = sc.nextLine();
-        System.out.println("Podaj tajną wiadomość(pamiętasz, że to ciąg liczb całkowitych rozdzielonych spacjami?):");
+        System.out.println("Podaj zakodowana wiadomosc(pamietasz, ze to ciag liczb calkowitych rozdzielonych spacjami?): \n " +
+                "/ Type coded message(do you remember that is array of integers separated by spaces?): ");
         input = sc.nextLine();
 
         String[] start = input.split(" ");
@@ -80,7 +81,7 @@ public class Decode {
             konc += 8;
         }
 
-        System.out.println("Odkodowana wiadomość: ");
+        System.out.println("Odkodowana wiadomosc to: / Decryphed message is:");
         char ch;
         for (int e : end) {
             ch = Character.forDigit(e, 36);
