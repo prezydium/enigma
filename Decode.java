@@ -22,10 +22,15 @@ public class Decode {
                 "/ Type coded message(do you remember that is array of integers separated by spaces?): ");
         input = sc.nextLine();
 
+
         String[] start = input.split(" ");
         int[] startAsInt = new int[start.length];
         for (int i = 0; i < start.length; i++) {
-            startAsInt[i] = Integer.parseInt(start[i]);
+            try {
+            startAsInt[i] = Integer.parseInt(start[i]); }
+            catch (NumberFormatException e){
+                System.out.println("Cos poszlo nie tak - na pewno wpisales tylko liczby? / Something gone wrong - are you sure you entered only numbers?");
+            }
         }
 
         for (int i = 0; i < startAsInt.length; i++) {
